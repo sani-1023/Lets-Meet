@@ -4,6 +4,8 @@ import { neobrutalism } from "@clerk/themes"
 import Image from "next/image"
 import React from "react"
 import LoginPage from "../(auth)/login/[[...login]]/page"
+import { StreamCallProvider } from "@stream-io/video-react-sdk"
+import StreamProvider from "@/providers/StreamProvider"
 
 const MainLayout = async ({
     children
@@ -48,7 +50,9 @@ const MainLayout = async ({
 
     return (
         <main className="animate-fade-in">
-           {children}
+          <StreamProvider>
+            {children}
+          </StreamProvider>
         </main>
     )
 
